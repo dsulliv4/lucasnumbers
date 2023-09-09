@@ -1,0 +1,31 @@
+
+class LucasNumberGenerator
+{
+    static int LucasNumber(int n)
+    {
+        if (n == 0)
+            return 2;
+        if (n == 1)
+            return 1;
+
+        int first = 2;
+        int second = 1;
+        int lucasNth = 0;
+
+        for (int i = 2; i <= n; i++)
+        {
+            lucasNth = first + second;
+            first = second;
+            second = lucasNth;
+        }
+
+        return lucasNth;
+    }
+
+    static void Main()
+    {
+        int n = 10;
+        int lucasNth = LucasNumber(n);
+        Console.WriteLine($"The {n}-th Lucas number is: {lucasNth}");
+    }
+}
